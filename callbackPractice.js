@@ -60,7 +60,9 @@ last(names, function(lastName){
 
 
 
-  //Code Here for multiply
+var multiply = function(x, y, cb){
+  cb(x * y)
+}
 
 multiply(4, 3, function(answer){
   console.log('The answer is ', answer); //should console.log 12
@@ -76,7 +78,14 @@ multiply(4, 3, function(answer){
 
 
 
-  //Code Here for contains
+var contains = function(names, str, cb) {
+  var results;
+  if (names.indexOf(str) !== -1) {
+  results = true; 
+  }
+  cb(results);
+}
+
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 contains(names, 'Colt', function(result){
@@ -96,7 +105,19 @@ contains(names, 'Colt', function(result){
 
 
 
-    //Code Here for uniq
+var uniq = function (names, cb) {
+  var uniqArr = [];
+  var obj = {};
+ 
+  for (i = 0; i < names.length; i++) {
+    obj[names[i]]=0;
+  }
+  for (i in obj) {
+    uniqArr.push(i);
+  }
+  return uniqArr;
+  cb(uniqArr)
+}
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 uniq(names, function(uniqArr){
@@ -112,7 +133,11 @@ uniq(names, function(uniqArr){
 
 
 
-    //Code Here for each
+var each = function (names, cb) {
+  for (var i = 0; i < names.length; i++) {
+    cb(names[i], i)
+  }
+}
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 each(names, function(item, indice){
@@ -129,7 +154,18 @@ each(names, function(item, indice){
 
 
 
- //code here for getUserById
+var getUserById = function(arry, str, cb) {
+  var email;
+  var name;
+  var address
+  for (var i = 0; i < arry.length; i++) {
+    if (arry.id === str) {
+      email.push(arry.email)
+      name.push(arry.name)
+      address.push(arry.address)
+      }      
+  }
+}  
 
 var users = [
   {
